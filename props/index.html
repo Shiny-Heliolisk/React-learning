@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // PostItem.js
+        function PostItem(props) {
+            if(typeof props.callback === 'function')
+                props.callback(Math.random());
+            return (
+                <div className="post-item">
+                    <label htmlFor="text-input">email</label>
+                    <input type="text" id="text-input" />   
+                        <h1>{ props.title }</h1>
+                        <p>{props.content}
+                        </p>
+                </div>
+            )
+        }
+
+        //App.js
+        function App() {
+            return (
+                <div id="wrapper">
+                    <PostItem 
+                        title="title 1"
+                        content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum esse porro eos alias officiis! Magni
+                            corrupti quas excepturi enim at laboriosam fugiat voluptates magnam? Hic culpa magni cum voluptates. Earum."
+                        callback = {(random)=>{
+                            console.log('random: ',random);
+                        }}
+                    />
+                    <PostItem 
+                        title="title 2"
+                        content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum esse porro eos alias officiis! Magni
+                            corrupti quas excepturi enim at laboriosam fugiat voluptates magnam? Hic culpa magni cum voluptates. Earum."
+                    />
+                    <PostItem 
+                        title="title 3"
+                        content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum esse porro eos alias officiis! Magni
+                            corrupti quas excepturi enim at laboriosam fugiat voluptates magnam? Hic culpa magni cum voluptates. Earum."
+                    />
+                </div>
+            )
+        }
+
+        //index.js
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
