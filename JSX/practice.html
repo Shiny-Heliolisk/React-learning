@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- add thu vien react dom -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- add thu vien jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const courses = [
+            {
+                "id": 2,
+                "category": 2,
+                "title": "Pike Course",
+                "desc" :"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, dolores assumenda maxime vel itaque dignissimos, iste expedita blanditiis beatae possimus natus amet hic unde, commodi enim cupiditate voluptas praesentium libero!",
+
+            },
+            {
+                "id": 3,
+                "category": 3,
+                "title": "Pike Course 2",
+                "desc" :"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, dolores assumenda maxime vel itaque dignissimos, iste expedita blanditiis beatae possimus natus amet hic unde, commodi enim cupiditate voluptas praesentium libero!",
+
+            }
+        ]
+
+        const CourseItem = props => (
+            <div>
+                <h2>{props.title}</h2>
+                <p>{props.description}</p>
+            </div>
+        )
+
+        // PostItem.js
+        function PostItem(props) {
+
+        }
+
+        //App.js
+        function App() {
+            return (
+                <div id="wrapper">
+                    {courses.map(course =>
+                        <CourseItem 
+                            key = {course.id}
+                            title = {course.title}
+                            description = {course.desc}
+                        />
+                    )}
+                </div>
+            )
+        }
+
+        //index.js
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
